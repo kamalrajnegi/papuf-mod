@@ -1,6 +1,6 @@
 import serial
 
-ser = serial.Serial("COM18", 115200, timeout=10)
+ser = serial.Serial("COM3", 115200, timeout=10)
 
 dummy = b'\x00'
 

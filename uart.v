@@ -285,11 +285,11 @@ module uart_rx_clk(
 reg [31:0]count;
 
 always @(posedge clk) begin
-    if(count == 81)             //Baud rate is 115200   for 150MHz
+    if(count == 68)             //Baud rate is 115200   for 125MHz
         count <= 0;
     else
         count <= count +1;
-    clk_out <= (count < 40)?1:0;  //50% duty cycle
+    clk_out <= (count < 34)?1:0;  //50% duty cycle
 end
 endmodule
 
@@ -370,11 +370,11 @@ output reg clk_out
     
     reg [20:0]count;
     always @ (posedge clk)begin
-    if(count == 1302)            //baud rate is 115200
+    if(count == 1085)            //baud rate is 115200
         count <= 0;
     else
         count <= count + 1;
         
-    clk_out <= (count < 651)?1:0;
+    clk_out <= (count < 540)?1:0;
     end
 endmodule
