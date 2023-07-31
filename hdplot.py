@@ -22,7 +22,7 @@ ll = len(open("./response1.txt","r").readlines())
 
 hd_one_bit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-for x in range(0,ll):
+for x in range(0,ll-1):
     one = resp1[x]
     two = resp2[x]
     ct = 0
