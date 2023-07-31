@@ -8,10 +8,10 @@ module papuf(C,Data_in,R);
     // output done;
 
 
-(* DONT_TOUCH = "TRUE" *) wire [60:0] TY;
-(* DONT_TOUCH = "TRUE" *) wire [60:0] BY;
-(* DONT_TOUCH = "TRUE" *) wire [60:0] CY;
-(* DONT_TOUCH = "TRUE" *) wire [48:0] FR;
+(* DONT_TOUCH = "TRUE" *) wire [15:0] TY;
+(* DONT_TOUCH = "TRUE" *) wire [15:0] BY;
+(* DONT_TOUCH = "TRUE" *) wire [15:0] CY;
+//(* DONT_TOUCH = "TRUE" *) wire [15:0] FR;
 (* DONT_TOUCH = "TRUE" *) wire R0;
 (* DONT_TOUCH = "TRUE" *) wire R1;
 (* DONT_TOUCH = "TRUE" *) wire R2;
@@ -201,44 +201,44 @@ LUT3 #(.INIT( 8'hCA)) BMUX12(.O(BY[12]),.I0(TY[11]),.I1(CY[11]),.I2(C[12]));
 
 
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
-LUT3 #(.INIT( 8'hCA)) TMUX61(.O(TY[58]),.I0(CY[12]),.I1(BY[12]),.I2(C[13]));
+LUT3 #(.INIT( 8'hCA)) TMUX61(.O(TY[13]),.I0(CY[12]),.I1(BY[12]),.I2(C[13]));
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
-LUT3 #(.INIT( 8'hCA)) CMUX61(.O(CY[58]),.I0(BY[12]),.I1(TY[12]),.I2(C[13]));
+LUT3 #(.INIT( 8'hCA)) CMUX61(.O(CY[13]),.I0(BY[12]),.I1(TY[12]),.I2(C[13]));
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
-LUT3 #(.INIT( 8'hCA)) BMUX61(.O(BY[58]),.I0(TY[12]),.I1(CY[12]),.I2(C[13]));
+LUT3 #(.INIT( 8'hCA)) BMUX61(.O(BY[13]),.I0(TY[12]),.I1(CY[12]),.I2(C[13]));
 
 
 //stage 65
 
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
-LUT3 #(.INIT( 8'hCA)) TMUX62(.O(TY[59]),.I0(CY[58]),.I1(BY[58]),.I2(C[14]));
+LUT3 #(.INIT( 8'hCA)) TMUX62(.O(TY[14]),.I0(CY[13]),.I1(BY[13]),.I2(C[14]));
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
-LUT3 #(.INIT( 8'hCA)) CMUX62(.O(CY[59]),.I0(BY[58]),.I1(TY[58]),.I2(C[14]));
+LUT3 #(.INIT( 8'hCA)) CMUX62(.O(CY[14]),.I0(BY[13]),.I1(TY[13]),.I2(C[14]));
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
-LUT3 #(.INIT( 8'hCA)) BMUX63(.O(BY[59]),.I0(TY[58]),.I1(CY[58]),.I2(C[14]));
+LUT3 #(.INIT( 8'hCA)) BMUX63(.O(BY[14]),.I0(TY[13]),.I1(CY[13]),.I2(C[14]));
 
 //stage 66
 
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
-LUT3 #(.INIT( 8'hCA)) TMUX64(.O(TY[60]),.I0(CY[59]),.I1(BY[59]),.I2(C[15]));
+LUT3 #(.INIT( 8'hCA)) TMUX64(.O(TY[15]),.I0(CY[14]),.I1(BY[14]),.I2(C[15]));
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
-LUT3 #(.INIT( 8'hCA)) CMUX64(.O(CY[60]),.I0(BY[59]),.I1(TY[59]),.I2(C[15]));
+LUT3 #(.INIT( 8'hCA)) CMUX64(.O(CY[15]),.I0(BY[14]),.I1(TY[14]),.I2(C[15]));
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
-LUT3 #(.INIT( 8'hCA)) BMUX64(.O(BY[60]),.I0(TY[59]),.I1(CY[59]),.I2(C[15]));
+LUT3 #(.INIT( 8'hCA)) BMUX64(.O(BY[15]),.I0(TY[14]),.I1(CY[14]),.I2(C[15]));
 
 
 
 
 //(* LOCK_PINS="ALL"*)  
-FD #(.INIT(0)) FF_PArb9(.Q(R0),.C(BY[60]),.D(TY[60]));
+FD #(.INIT(0)) FF_PArb9(.Q(R0),.C(BY[15]),.D(TY[15]));
 
 
 //(* LOCK_PINS="ALL"*) 
-FD #(.INIT(0)) FF_PArb10(.Q(R1),.C(CY[60]),.D(BY[60]));
+FD #(.INIT(0)) FF_PArb10(.Q(R1),.C(CY[15]),.D(BY[15]));
 
 
 //(* LOCK_PINS="ALL"*)
-FD #(.INIT(0)) FF_PArb11(.Q(R2),.C(TY[60]),.D(BY[60]));
+FD #(.INIT(0)) FF_PArb11(.Q(R2),.C(TY[15]),.D(BY[15]));
 
 
 (* LOCK_PINS = "I2:A3, I1:A2, I0:A1" , BEL="A6LUT" *)
