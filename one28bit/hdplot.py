@@ -29,9 +29,9 @@ hdfile = open("./hdoutput.txt","w")
 
 ll = len(open("./response1.txt","r").readlines())
 
-hd_one_bit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+hd_one_bit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-for x in range(0,ll-1):
+for x in range(0,ll):
     one = resp1[x]
     two = resp2[x]
     ct = 0
@@ -51,18 +51,18 @@ print("One bit HD", hd_one_bit)
 b = np.loadtxt("hdoutput.txt",dtype=int)
 
 #yaxis = np.zeros(16, dtype=int)
-yaxis = [0] * 16
+yaxis = [0] * 128
 
 for x in range(0,len(b)):
     #print(x)
     onedata = b[x]
-    if(onedata > 15):
-        onedata = 15
+    if(onedata > 127):
+        onedata = 128
     yaxis[onedata] = yaxis[onedata] + 1
 
 
 
-xaxis = np.linspace(0,15,16)
+xaxis = np.linspace(0,127,128)
 
 print("Similar bit difference", yaxis)
 #print(xaxis)
