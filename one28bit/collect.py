@@ -13,3 +13,6 @@ ser.write(dat)
 data = ser.read(16)
 #print("length: ",len(data))
 print(data.hex())
+
+
+ser.close()
