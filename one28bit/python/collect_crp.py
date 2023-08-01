@@ -33,22 +33,4 @@ for data in range(20000,40000):
 
 f.close()
 
-
-if write_response_file:
-    data = []
-    with open("./data.txt", "r") as f:
-        line = f.readline()
-        while line:
-            data.append(line)
-            line = f.readline()
-    r1 = open("response.txt","w")
-    r2 = open("response1.txt", "w")
-
-    for x in range(0,len(data)-1):
-        r1.write(data[x])
-        r2.write(data[x+1])
-    
-    r1.close()
-    r2.close()
-
 ser.close()
