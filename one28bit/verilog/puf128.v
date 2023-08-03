@@ -1,4 +1,4 @@
-module PPUF_main_128(
+module puf128(
     input clk,rst,
     input [15:0] C,
     output reg [127:0]puf_out,

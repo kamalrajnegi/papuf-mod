@@ -6,8 +6,7 @@ module top128(
     input enable_rx,
     output done_rx,
     output tx_out,
-    output tx_done//,
-    //output [15:0]challenge
+    output tx_done
     );
 
 
@@ -30,10 +29,10 @@ wire start_puf;
 
 assign start_puf = ~done_rx;
 
-//puf1bit16_r16 apuf(challenge,done_rx,response);
-(*DONT_TOUCH = "TRUE"*) PPUF_main_128 apuf(clk,start_puf,challenge,response,puf_done,state);
+puf128 apuf(clk,start_puf,challenge,response,puf_done,state);
 
 reg [3:0]delay;
+
 always @(posedge txclk) begin
     delay[0] <= done_rx;
     delay[1] <= delay[0];
