@@ -41,4 +41,6 @@ papuf q13(challenge,pulse,res2[13]);
 papuf q14(challenge,pulse,res2[14]);
 papuf q15(challenge,pulse,res2[15]);
 
+assign response = res1 ^ res2;
+
 endmodule

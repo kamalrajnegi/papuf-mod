@@ -1,3 +1,9 @@
+/*
+Priority Arbiter PUF with Feed Forwared Arbiter
+This work was publishd on SOCVLSI Conference
+*/
+
+
 module PPUF_LONGER(C,Data_in,R);
 //  input rst;
      input [15:0] C;
@@ -152,9 +158,7 @@ LUT3 #(.INIT( 8'hCA)) TMUX7(.O(TY[7]),.I0(TY[6]),.I1(CY[6]),.I2(C[7]));
 
 
 LUT3 #(.INIT( 8'hCA)) TMUX8(.O(TY[8]),.I0(CY[7]),.I1(BY[7]),.I2(C[8]));
-
 LUT3 #(.INIT( 8'hCA)) CMUX8(.O(CY[8]),.I0(BY[7]),.I1(TY[7]),.I2(C[8]));
-
 LUT3 #(.INIT( 8'hCA)) BMUX8(.O(BY[8]),.I0(TY[7]),.I1(CY[7]),.I2(C[8]));
 
 // stage 9

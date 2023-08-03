@@ -16,7 +16,7 @@ module puf128(
 wire [15:0]data_out;
 
 
-papuf16xor PUF0(next_LFSR,mux_in,data_out);
+spapuf PUF0(next_LFSR,mux_in,data_out);
 
 
 //wire [15:0]data_out = 16'h5566;
