@@ -2,7 +2,7 @@
 Priority Arbiter PUF with onely one Feed-Forward Path
 */
 
-module papuf(C,Data_in,R);
+module papuf_ff1(C,Data_in,R);
      input [15:0] C;
      input Data_in;
      output  R;
