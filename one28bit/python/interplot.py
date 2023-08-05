@@ -27,7 +27,7 @@ def plot():
 
     hdfile = open("hdoutput.txt","w")
 
-    hd_one_bit = [0] * 129
+    hd_one_bit = [0] * (N+1)
 
     for x in range(0,ll):
         one = resp1[x]
@@ -51,6 +51,7 @@ def plot():
             onedata = 128
         yaxis[onedata] = yaxis[onedata] + 1
 
-    xaxis = np.linspace(0,N-1,N+1)
-    plt.bar(xaxis[43:85],yaxis[43:85])
+    xaxis = np.linspace(0,N,N+1)
+    print(xaxis)
+    plt.bar(xaxis,yaxis)
     

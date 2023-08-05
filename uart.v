@@ -1,3 +1,168 @@
+module uart_rx_32(
+    input rx,
+    input clk,
+    input enable,
+    output reg [31:0]data_o,
+    output reg done
+    );
+
+wire clk_out,rx_done;
+
+wire [7:0]data_out;
+
+reg [7:0]dummy;
+
+uart_rx_clk clk(clk,clk_out);
+uart_rx U0(rx,clk_out,enable,data_out,rx_done);
+
+
+reg [2:0]state = 0;
+
+always @(posedge rx_done or negedge enable) begin
+    if(~enable)
+    state <= 0;
+    else begin
+        case (state)
+            3'd0: begin
+            done <= 0;
+            data_o[31:24] <= data_out;
+            state <= 1;
+            end
+            3'd1: begin
+            data_o[23:16] <= data_out;
+            state <= 2;
+            done <= 0;
+            end
+            3'd2: begin
+            done <= 0;
+            data_o[15:8] <= data_out;
+            state <= 3;
+            done <= 0;
+            end
+            3'd3: begin
+            data_o[7:0] <= data_out;
+            state <= 4;
+            done <= 0;
+            end
+            3'd4: begin
+            dummy <= data_out;
+            state <= 0;
+            done <= 1;
+            end
+            default : state <= 0;
+        endcase
+    end
+end
+
+endmodule
+
+
+module uart_tx_32(
+input clk,
+input enable,
+input [31:0]tx_data128,
+output tx_out,
+output reg tx_done,
+output txclk
+);
+
+
+wire tx_empty,txclk;
+
+reg [31:0]data;
+
+wire [7:0]tx_data;
+assign tx_data = data[31:24];     //Change this to first 8 bit of  MSB
+
+reg load_send;
+reg [3:0]state;
+
+
+reg [5:0]count;
+
+always @ (posedge txclk)begin
+if(enable) begin
+    state <= 0;
+    data <= tx_data128;
+    load_send <= 1;
+    tx_done <= 0;
+    count <= 0;
+    end else begin
+            case(state)
+            4'd0:
+                begin
+                    load_send <= 1;
+                    state <= 1;
+                    tx_done <= 0;
+                end
+            4'd1:
+                begin
+                    tx_done <= 0;
+                    load_send <= 1;
+                    state <= 2;
+                end
+            4'd2:
+                begin
+                    tx_done <= 0;
+                    load_send <= 0;
+                        if(tx_empty)
+                            state <= 3;
+                        else
+                            state <= 2;
+                end
+            4'd3:
+                  begin
+                    count <= count +1;
+                    load_send <= 1;
+                    data <= (data << 8);
+                    state <= 4;
+                    tx_done <= 0;
+                  end
+            4'd4: 
+                begin
+                    load_send <= 1;
+                    state <= 5;
+                    tx_done <= 0;
+                end
+
+            4'd5:
+                begin
+                    tx_done <= 0;
+                    load_send <= 0;
+                        if(tx_empty)
+                            state <= 6;
+                        else
+                            state <= 5;
+                end
+            4'd6:
+                begin
+                    if(count == 3)     //Change the value of count
+                        state <= 7;
+                    else
+                        state <= 3;
+                end
+            4'd7:
+                begin
+                    tx_done <= 1;
+                    load_send <= 1;
+                    state <= 7;
+                end
+            default:
+                state <= 7;
+            endcase
+        end
+end
+
+//---------------------------- UART for 1 byte data transfer ----------------------------------------
+assign ld_tx_data = load_send;
+assign tx_enable = ~load_send;
+uart_tx_clk clk0(clk,txclk);
+uart_tx TX(enable,txclk,ld_tx_data,tx_data,tx_enable,tx_out,tx_empty);// reset is modified with enable
+//------------------------------------------------------------------------------------------
+endmodule
+
+
+
 module uart_rx_16(
     input rx,
     input clk,
@@ -280,26 +445,6 @@ end
 endmodule
 
 
-
-module uart_rx_clk(
-    input clk,
-    output reg clk_out
-    );
-
-reg [31:0]count;
-
-always @(posedge clk) begin
-    if(count == 68)             //Baud rate is 115200   for 125MHz
-    //if(count == 27)                   //edge 115200
-        count <= 0;
-    else
-        count <= count +1;
-    clk_out <= (count < 34)?1:0;  //zybo
-    //clk_out <= (count < 13)?1:0;  //50% duty cycle
-end
-endmodule
-
-
 module uart_tx(
 reset          ,
 txclk          ,
@@ -366,29 +511,6 @@ end
 
 
 endmodule
-
-
-module uart_tx_clk(
-input clk,
-output reg clk_out
-
-    );
-    
-    reg [20:0]count;
-    always @ (posedge clk)begin
-    if(count == 1085)             //baud rate is 115200 
-    //if(count == 434)                 //baud rate is 115200
-        count <= 0;
-    else
-        count <= count + 1;
-        
-    clk_out <= (count < 540)?1:0; //zybo
-    //clk_out <= (count < 217)?1:0; //edge
-    end
-endmodule
-
-
-
 
 module uart_tx_128(
 input clk,
