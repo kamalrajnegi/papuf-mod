@@ -18,7 +18,10 @@ uart_rx U0(rx,clk_out,enable,data_out,rx_done);
 
 reg [1:0]state = 0;
 
-always @(posedge rx_done) begin
+always @(posedge rx_done or negedge enable) begin
+    if(~enable)
+    state <= 0;
+    else begin
         case (state)
             2'd0: begin
             done <= 0;
@@ -37,6 +40,7 @@ always @(posedge rx_done) begin
             end
             default : state <= 0;
         endcase
+    end
 end
 
 endmodule

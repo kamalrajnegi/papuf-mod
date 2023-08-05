@@ -13,15 +13,15 @@ module puf128(
 //************************************** This is PUF 16 -------------------------
 
 
-wire [15:0]data_out;
+(* DONT_TOUCH = "TRUE" *) wire [15:0]data_out;
 
 
-spapuf PUF0(next_LFSR,mux_in,data_out);
+puf16xor PUF0(next_LFSR,mux_in,data_out);
 
 
 //wire [15:0]data_out = 16'h5566;
 //-------------------------------------------- Linear Feedback Shift Register ------------------------ 
-wire [15:0]mux_in;
+(* DONT_TOUCH = "TRUE" *) wire [15:0]mux_in;
 wire done;
 reg start_new,next_LFSR;
 //reg [5:0]state;

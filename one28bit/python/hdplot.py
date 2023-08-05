@@ -12,11 +12,13 @@ plot_type = input("Select Plot Type\n1. Intra HD Plot \n2. Inter HD plot \n3. Re
 
 if(plot_type == '1'):
     intraplot.plot()
-    plt.title("Intra-chip Hamming Distance Plot")
+    plt.xlabel("Intra-chip Hamming Distance")
+    plt.ylabel("Similar Bit differences")
     plt.show()
 elif(plot_type == '2'):
     interplot.plot()
-    plt.title("Inter-chip Hamming Distance Plot")
+    plt.xlabel("Inter-chip Hamming Distance")
+    plt.ylabel("Similar Bit differences")
     plt.show()
 elif(plot_type == '3'):
     relplot.plot()

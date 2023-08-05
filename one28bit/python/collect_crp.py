@@ -19,7 +19,7 @@ f = open("data.txt", "w")
 
 
 
-for data in range(20000,40000):
+for data in range(10000,20000):
     ch = data.to_bytes(2, 'big')
     dat = ch + dummy
     ser.write(dat)

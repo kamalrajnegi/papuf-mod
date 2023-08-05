@@ -1,5 +1,5 @@
 /*
-Priority Arbiter PUF with onely one Feed-Forward Path
+Priority Arbiter PUF with only one Feed-Forward Path
 */
 
 module papuf_ff1(C,Data_in,R);

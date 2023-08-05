@@ -57,5 +57,5 @@ def plot():
     xaxis = np.linspace(0,N-1,N+1)
 
 
-    plt.bar(xaxis[35:90],yaxis[35:90])
+    plt.bar(xaxis[43:85],yaxis[43:85])
     
