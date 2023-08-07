@@ -28,7 +28,9 @@ elif(plot_type == '3'):
     plt.show()
 elif(plot_type == '4'):
     uniplot.plot()
-    plt.title("Inter-chip Hamming Distance Plot")
+    plt.xlabel("Response bit position")
+    plt.ylabel("No. of responses")
+    #plt.title("Inter-chip Hamming Distance Plot")
     plt.show()
 else:
     print("Cant Be plotted")

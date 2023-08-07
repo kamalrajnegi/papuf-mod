@@ -27,8 +27,8 @@ def plot():
     xaxis = np.linspace(0,N-1,N+1)
 
     hd_one_bit = hd_one_bit[:128]
-    max = [20000] * 128
-    avg = [10000] * 128
+    max = [65536] * 128
+    avg = [32768] * 128
     ind = np.arange(N)  
     p1 = plt.bar(ind, max,color='yellow')
     p2 = plt.bar(ind, hd_one_bit,color='orange')
