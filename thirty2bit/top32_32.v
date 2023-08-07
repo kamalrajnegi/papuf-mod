@@ -1,16 +1,17 @@
 module top32_32(
     input check,
-    output enable,
+    //output enable,
     input clk,
     input rx,
     input enable_rx,
     output done_rx,
     output tx_out,
-    output tx_done
+    //output tx_done
+    output [2:0]state
     );
 
 
-wire txclk;
+wire txclk,tx_done,enable;
 (*DONT_TOUCH = "TRUE"*)wire [31:0]challenge;
 (*DONT_TOUCH = "TRUE"*)wire [31:0]response;
 
@@ -18,7 +19,7 @@ wire done_rx;
 
 wire [31:0]binary;
 
-uart_rx_32 RX(rx,clk,enable_rx,binary,done_rx);
+uart_rx_32 RX(rx,clk,enable_rx,binary,done_rx,state);
 
 b2g_converter grey(binary,challenge);
 

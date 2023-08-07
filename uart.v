@@ -3,7 +3,8 @@ module uart_rx_32(
     input clk,
     input enable,
     output reg [31:0]data_o,
-    output reg done
+    output reg done,
+    output reg [2:0]state = 0
     );
 
 wire clk_out,rx_done;
@@ -16,7 +17,7 @@ uart_rx_clk clk(clk,clk_out);
 uart_rx U0(rx,clk_out,enable,data_out,rx_done);
 
 
-reg [2:0]state = 0;
+//reg [2:0]state = 0;
 
 always @(posedge rx_done or negedge enable) begin
     if(~enable)

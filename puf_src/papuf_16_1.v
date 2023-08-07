@@ -1,4 +1,4 @@
-module papuf(C,Data_in,R);
+module papuf_16_1(C,Data_in,R);
 //  input rst;
      input [15:0] C;
      input Data_in;

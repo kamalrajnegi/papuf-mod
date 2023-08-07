@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import intraplot
 import interplot
 import relplot
-import unqplot
+import uniplot
 
 plot_type = input("Select Plot Type\n1. Intra HD Plot \n2. Inter HD plot \n3. Reliablity Plot \n4. Uniqueness Plot \n")
 
@@ -27,7 +27,7 @@ elif(plot_type == '3'):
     plt.ylabel("Similar Bit differences")
     plt.show()
 elif(plot_type == '4'):
-    unqplot.plot()
+    uniplot.plot()
     plt.title("Inter-chip Hamming Distance Plot")
     plt.show()
 else:
