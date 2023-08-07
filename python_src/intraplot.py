@@ -58,4 +58,5 @@ def plot():
 
 
     plt.bar(xaxis,yaxis)
+    #plt.bar(xaxis[40:88],yaxis[40:88])
     

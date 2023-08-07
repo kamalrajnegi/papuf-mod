@@ -14,21 +14,20 @@ def plot():
     ll = len(resp1)
     N = len(resp1[0]) -1
 
-    hd_one_bit = [0] * 129
+    hd_one_bit = [0] * N
 
     for x in range(0,ll):
         one = resp1[x]
         ct = 0
-        for y in range(0,len(one)):
+        
+        for y in range(0,len(one)-1):
                 if one[y] != '1':
                     ct = ct + 1
                     hd_one_bit[y] = hd_one_bit[y] + 1
-
-    xaxis = np.linspace(0,N-1,N+1)
-
-    hd_one_bit = hd_one_bit[:128]
-    max = [65536] * 128
-    avg = [32768] * 128
+                    
+    hd_one_bit = hd_one_bit[:N]
+    max = [ll] * N
+    avg = [int(ll/2)] * N
     ind = np.arange(N)  
     p1 = plt.bar(ind, max,color='yellow')
     p2 = plt.bar(ind, hd_one_bit,color='orange')

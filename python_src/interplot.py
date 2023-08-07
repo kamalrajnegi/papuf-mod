@@ -54,4 +54,5 @@ def plot():
     xaxis = np.linspace(0,N,N+1)
     print(xaxis)
     plt.bar(xaxis,yaxis)
+    #plt.bar(xaxis[40:88],yaxis[40:88])
     

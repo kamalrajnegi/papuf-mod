@@ -3,13 +3,14 @@ This Python script is for collecting CRP form PUF using UART connection
 """
 import serial
 
-response_width = 128
-response_width_byte = int(128/8)
 challenge_width = 16
+response_width = 32
+
+response_width_byte = int(response_width/8)
 challenge_width_byte = int(challenge_width/8)
 
 initial_challenge = 0
-final_challenge = 65536 
+final_challenge = 65536
 
 com_port = "COM3"
 baud_rate = 115200
@@ -34,10 +35,10 @@ for data in range(initial_challenge,final_challenge):
     uart_write_data = challenge + dummy
     ser.write(uart_write_data)
     uart_read_data = ser.read(response_width_byte)
-    #print("length: ",len(data))
     print(uart_read_data.hex())
     data = int.from_bytes(uart_read_data)
-    res = format(data, '0128b')
+    format_type = '0'+str(response_width)+'b'
+    res = format(data, format_type)
     f.write(res)
     f.write("\n")
 f.close()
