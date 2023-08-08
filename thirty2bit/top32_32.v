@@ -23,7 +23,7 @@ uart_rx_16 RX(rx,clk,enable_rx,binary,done_rx);
 b2g_converter grey(binary,challenge);
 
 
-spapuf_16_32 puf(done_rx,challenge,response);
+papuf_16_32 puf(done_rx,challenge,response);
 
 reg [3:0]delay;
 
