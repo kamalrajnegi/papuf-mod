@@ -18,9 +18,9 @@ wire done_rx;
 
 wire [15:0]binary;
 
-uart_rx_16 RX(rx,clk,enable_rx,binary,done_rx);
+uart_rx_16 RX(rx,clk,enable_rx,challenge,done_rx);
 
-b2g_converter grey(binary,challenge);
+//b2g_converter grey(binary,challenge);
 
 (*DONT_TOUCH = "TRUE"*) wire [5:0]state;
 (*DONT_TOUCH = "TRUE"*) wire puf_done;

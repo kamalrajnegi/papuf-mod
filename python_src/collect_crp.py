@@ -12,7 +12,7 @@ challenge_width_byte = int(challenge_width/8)
 initial_challenge = 0
 final_challenge = 65536
 
-com_port = "COM3"
+com_port = "COM6"
 baud_rate = 115200
 
 ser = serial.Serial(com_port, baud_rate, timeout=10)
