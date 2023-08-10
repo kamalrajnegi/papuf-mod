@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 
 def bin2g(num):
+    # num = num[::-1]
     dat = [0] * len(num)
     dat[0] = num[0]
     for x in range(1,len(num)):
@@ -15,6 +16,7 @@ def hd(number1,number2):
     return dat
 
 def bin2int(seed):
+    # seed = seed[::-1]
     num = 0
     for x in range(0,len(seed)):
         temp = seed[x]
@@ -52,7 +54,7 @@ with open("./response.txt", "r") as f:
 hd_data = []
 count = 0
 
-for x in range(0,65536):
+for x in range(20000,50000):
     count = count + 1
     dat = int2bin(x)
     # print("666666")
@@ -106,3 +108,7 @@ plt.xlabel("Bit Position")
 plt.ylabel("SAC")
 
 plt.show()
+
+
+
+# print(bin2int(int2bin(6655)))

@@ -4,6 +4,7 @@ run hdplot.py for complete plot
 
 import numpy as np
 import matplotlib.pyplot as plt
+import plot_x
 
 def plot():
     resp1 = []
@@ -22,8 +23,8 @@ def plot():
             line = f.readline()
 
     ll = len(resp1)
+    print(ll)
     N = len(resp1[0]) -1
-
 
 
     hdfile = open("hdoutput.txt","w")
@@ -31,8 +32,15 @@ def plot():
     hd_one_bit = [0] * (N+1)
 
     for x in range(0,ll):
-        one = resp1[x]
-        two = resp2[x]
+        # print("bin ",x)
+        # k = plot_x.int2bin(x)
+        # k = plot_x.bin2g(k)
+        # k = plot_x.bin2int(k)
+        # print("grey ", k)
+        # print("-----")
+        k = x
+        one = resp1[k]
+        two = resp2[k]
         ct = 0
         for y in range(0,len(one)):
                 if one[y] != two[y]:
