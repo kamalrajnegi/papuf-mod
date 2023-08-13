@@ -211,7 +211,7 @@ end
 
 endmodule
 
-module uart_tx_multi(
+module uart_tx_16(
 input clk,
 input enable,
 input [15:0]tx_data128,

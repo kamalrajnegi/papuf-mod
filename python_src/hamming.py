@@ -35,15 +35,14 @@ def correct(data,parity):
     elif(parity == [1,1,1]):
         data[3] = 1 ^ data[3]  
     elif(parity == [0,0,0]):
-        print("Corrected")
+        data = data
     else:
         print("Can't correct")
     
     return data
 
-
-data = [0,0,0,0]
-syndrome = encode(data)
-data = [0,0,0,1]
-dec = decode(data,syndrome)
-print(correct(data,dec))
+# data = [0,0,0,0]
+# syndrome = encode(data)
+# data = [0,0,0,1]
+# dec = decode(data,syndrome)
+# print(correct(data,dec))
