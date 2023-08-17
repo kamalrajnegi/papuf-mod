@@ -54,7 +54,7 @@ def int2bin(num):
 # hd_data = []
 # count = 0
 
-# for x in range(20000,50000):
+# for x in range(0,65536):
 #     count = count + 1
 #     dat = int2bin(x)
 #     # print("666666")

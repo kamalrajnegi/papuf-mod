@@ -21,7 +21,7 @@ uart_rx_16 RX(rx,clk,enable_rx,binary,done_rx);
 b2g_converter grey(binary,challenge);
 
 //puf1bit16_r16 apuf(challenge,done_rx,response);
-(*DONT_TOUCH = "TRUE"*) spapuf_16_16 apuf(done_rx,challenge,response);
+(*DONT_TOUCH = "TRUE"*) papuf_16_ff_16_16 apuf(done_rx,challenge,response);
 
 reg [3:0]delay;
 always @(posedge txclk) begin

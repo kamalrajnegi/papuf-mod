@@ -64,6 +64,13 @@ def plot():
 
     xaxis = np.linspace(0,N,N+1)
 
+    for x in range(0,len(xaxis)):
+        xaxis[x] = int(xaxis[x])
+
+
+    print("xaxis ", xaxis)
+    print("yaxis ", yaxis)
+
 
     plt.bar(xaxis,yaxis)
     #plt.bar(xaxis[40:88],yaxis[40:88])

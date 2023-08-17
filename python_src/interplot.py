@@ -52,7 +52,7 @@ def plot():
         yaxis[onedata] = yaxis[onedata] + 1
 
     xaxis = np.linspace(0,N,N+1)
-    print(xaxis)
+    print("This is x acis ", xaxis)
     plt.bar(xaxis,yaxis)
     #plt.bar(xaxis[40:88],yaxis[40:88])
     
