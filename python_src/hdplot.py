@@ -23,8 +23,7 @@ elif(plot_type == '2'):
     plt.show()
 elif(plot_type == '3'):
     relplot.plot()
-    plt.title("Intra-chip Hamming Distance Plot")
-    plt.xlabel("Error in 128-bit PUF")
+    plt.xlabel("Hamming Distance of single CRP 128-bit SPA-PUF")
     plt.ylabel("Similar Bit differences")
     plt.show()
 elif(plot_type == '4'):

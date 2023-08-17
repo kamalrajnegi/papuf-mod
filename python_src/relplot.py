@@ -45,7 +45,10 @@ def plot():
 
     xaxis = np.linspace(0,N-1,N+1)
 
-    xaxis = xaxis[0:30]
-    yaxis = yaxis[0:30]
-    plt.bar(xaxis,yaxis)
-    
+    xaxis = xaxis[0:20]
+    yaxis = yaxis[0:20]
+    yax = [ll, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    plt.bar(xaxis,yaxis,color="red", label="Error in PUF response")
+    plt.plot(xaxis,yaxis,color="blue", linestyle='dashed')
+    # plt.bar(xaxis,yax, label="Response with ECC", alpha=0.8,color="green")
+    plt.legend()

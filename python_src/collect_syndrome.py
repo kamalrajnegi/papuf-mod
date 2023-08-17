@@ -13,14 +13,14 @@ challenge_width_byte = int(challenge_width/8)
 initial_challenge = 0
 final_challenge = 65536
 
-com_port = "COM6"
+com_port = "COM3"
 baud_rate = 115200
 
 ser = serial.Serial(com_port, baud_rate, timeout=10)
 dummy = b'\x00'
 
 #-------------------- Code block to check UART Connection ----------------------
-data = 400
+data = 43690
 ch = data.to_bytes(challenge_width_byte, 'big')
 dat = ch + dummy
 ser.write(dat)

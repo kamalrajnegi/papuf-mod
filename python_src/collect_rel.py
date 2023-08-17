@@ -13,11 +13,11 @@ else:
 ser = serial.Serial("COM3", 115200, timeout=2)
 dummy = b'\x00'
 
-data = 400
+data = 43690
 ch = data.to_bytes(2, 'big')
 dat = ch + dummy
 
-for data in range(0,10):
+for data in range(0,10000):
     ser.write(dat)
     data = ser.read(16)
     print(data.hex())
@@ -25,6 +25,6 @@ for data in range(0,10):
     res = format(data, '0128b')
     f.write(res)
     f.write("\n")
-    time.sleep(1)
+    time.sleep(0.1)
 
 f.close()
