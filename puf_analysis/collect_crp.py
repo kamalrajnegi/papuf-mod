@@ -12,6 +12,9 @@ challenge_width_byte = int(challenge_width/8)
 initial_challenge = 0
 final_challenge = 65536
 
+
+filename = "./responses/gray_counter/data.txt"
+
 # com_port = "COM18"
 # com_port = "COM6"
 com_port = "COM3"
@@ -31,7 +34,7 @@ dummy = b'\x00'
 # print(data.hex())
 # #-------------------------------------------------------------------------------
 
-f = open("data.txt", "w")
+f = open(filename, "w")
 
 for data in range(initial_challenge,final_challenge):
     challenge = data.to_bytes(challenge_width_byte, 'big')

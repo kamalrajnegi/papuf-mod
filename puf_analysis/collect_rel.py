@@ -2,12 +2,15 @@ import serial
 import os
 import time
 
-check_file = os.path.isfile('./reliability.txt')
+
+filename = "./responses/reliability.txt"
+
+check_file = os.path.isfile(filename)
 
 if(check_file):
-    f = open("reliability.txt", "a")
+    f = open(filename, "a")
 else:
-    f = open("reliability.txt", "w")
+    f = open(filename, "w")
     f.close()
 
 ser = serial.Serial("COM3", 115200, timeout=2)

@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot():
+def plot(filename):
     resp1 = []
 
-    with open("./response.txt", "r") as f:
+    with open(filename, "r") as f:
         line = f.readline()
         while line:
             resp1.append(line)
