@@ -11,10 +11,10 @@ from plot_module import intrahd_multi_puf
 
 plot_type = input("Select Plot Type\n1. Intra HD Plot \n2. Inter HD plot \n3. Reliablity Plot \n4. Uniqueness Plot \n5. Multiple Plot")
 
-first_response_file = "./responses/gray_counter/spapuf_16_128_16_zybo.txt"
+first_response_file = "./responses/binary_counter/data.txt"
 second_response_file = "./responses/gray_counter/spapuf_16_128_16_edge.txt"
 same_response_file = "./responses/reliability.txt"
-uniformity_file = "./responses/gray_counter/spapuf_16_128_16_zybo.txt"
+uniformity_file = "./responses/binary_counter/arbiter_16_16_16_zybo.txt"
 
 if(plot_type == '1'):
     intraplot.plot(first_response_file)

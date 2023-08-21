@@ -11,7 +11,7 @@ module papuf_16_ff_16_1(C,Data_in,R);
 (* DONT_TOUCH = "TRUE" *) wire [60:0] TY;
 (* DONT_TOUCH = "TRUE" *) wire [60:0] BY;
 (* DONT_TOUCH = "TRUE" *) wire [60:0] CY;
-(* DONT_TOUCH = "TRUE" *) wire [48:0] FR;
+(* DONT_TOUCH = "TRUE" *) wire [44:0] FR;         //This changed to 44
 (* DONT_TOUCH = "TRUE" *) wire R0;
 (* DONT_TOUCH = "TRUE" *) wire R1;
 (* DONT_TOUCH = "TRUE" *) wire R2;

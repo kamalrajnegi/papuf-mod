@@ -41,10 +41,10 @@ def plot():
         xaxis[x] = int(xaxis[x])
     # print("xaxis ", xaxis)
     # print("yaxis ", yaxis)
-    xaxis = xaxis[10:118]
-    yaxis = yaxis[10:118]
-    plt.plot(xaxis,yaxis, linestyle="dashed" , color="red", label="SPA-PUF")
-    plt.bar(xaxis,yaxis, color="black", alpha = 1)
+    # xaxis = xaxis[10:118]
+    # yaxis = yaxis[10:118]
+    plt.plot(xaxis,yaxis , color="red", label="SPA-PUF")
+    # plt.bar(xaxis,yaxis, color="black", alpha = 1)
     #------------------------------------ Papuf with feed forward -----------------------------------------
     resp1 = []
     with open("./responses/gray_counter/papuf_16_ff_16_128_zybo.txt", "r") as f:
@@ -80,10 +80,10 @@ def plot():
         xaxis[x] = int(xaxis[x])
     # print("xaxis ", xaxis)
     # print("yaxis ", yaxis)
-    xaxis = xaxis[10:118]
-    yaxis = yaxis[10:118]
+    # xaxis = xaxis[10:118]
+    # yaxis = yaxis[10:118]
     plt.plot(xaxis,yaxis, linestyle="dashed" , color="blue", label="PA-PUF with Feed-Forward")
-    plt.bar(xaxis,yaxis, color="green", alpha = 0.3)
+    # plt.bar(xaxis,yaxis, color="green", alpha = 0.3)
     #------------------------------------ papuf -----------------------------------------
     resp1 = []
     with open("./responses/gray_counter/papuf_16_128_16_zybo.txt", "r") as f:
@@ -119,10 +119,10 @@ def plot():
         xaxis[x] = int(xaxis[x])
     # print("xaxis ", xaxis)
     # print("yaxis ", yaxis)
-    xaxis = xaxis[10:118]
-    yaxis = yaxis[10:118]
+    # xaxis = xaxis[10:118]
+    # yaxis = yaxis[10:118]
     plt.plot(xaxis,yaxis, linestyle="dashed" , color="brown",label="PA-PUF")
-    plt.bar(xaxis,yaxis, color="blue", alpha = 0.3)
+    # plt.bar(xaxis,yaxis, color="blue", alpha = 0.3)
     #------------------------------------ arbiter -----------------------------------------
     resp1 = []
     with open("./responses/gray_counter/arbiter_16_128_16_zybo.txt", "r") as f:
@@ -158,10 +158,10 @@ def plot():
         xaxis[x] = int(xaxis[x])
     # print("xaxis ", xaxis)
     # print("yaxis ", yaxis)
-    xaxis = xaxis[10:118]
-    yaxis = yaxis[10:118]
+    # xaxis = xaxis[10:118]
+    # yaxis = yaxis[10:118]
     plt.plot(xaxis,yaxis, linestyle="dashed" , color="black", label="Arbiter PUF")
-    plt.bar(xaxis,yaxis, color="yellow", alpha = 0.3)
+    # plt.bar(xaxis,yaxis, color="yellow", alpha = 0.3)
 
     plt.xlabel("Hamming Distance")
     plt.ylabel("Similar Bit Differences")

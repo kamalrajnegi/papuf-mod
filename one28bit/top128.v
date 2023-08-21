@@ -20,7 +20,7 @@ wire [15:0]binary;
 
 uart_rx_16 RX(rx,clk,enable_rx,binary,done_rx);
 
-b2g_converter grey(binary,challenge);
+//b2g_converter grey(binary,challenge);
 
 (*DONT_TOUCH = "TRUE"*) wire [5:0]state;
 (*DONT_TOUCH = "TRUE"*) wire puf_done;
@@ -29,7 +29,7 @@ wire start_puf;
 
 assign start_puf = ~done_rx;
 
-puf128 apuf(clk,start_puf,challenge,response,puf_done,state);
+puf128 apuf(clk,start_puf,binary,response,puf_done,state);
 
 reg [3:0]delay;
 

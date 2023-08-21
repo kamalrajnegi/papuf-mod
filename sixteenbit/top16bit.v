@@ -35,7 +35,7 @@ assign enable = ~ delay[3];
 
 wire [15:0] data;
 
-assign const = 16'hABCD;
+assign const = 16'h1234;
 
 assign data = check?const:response;
 
