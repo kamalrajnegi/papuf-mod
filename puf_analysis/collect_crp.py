@@ -4,7 +4,7 @@ This Python script is for collecting CRP form PUF using UART connection
 import serial
 
 challenge_width = 16
-response_width = 16
+response_width = 128
 
 response_width_byte = int(response_width/8)
 challenge_width_byte = int(challenge_width/8)
